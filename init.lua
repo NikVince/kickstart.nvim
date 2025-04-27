@@ -1247,6 +1247,10 @@ require('lazy').setup({
       }
     end,
   },
+  {
+    'hrsh7th/nvim-cmp',
+    -- This is only for crates.nvim to use, not as your main completion engine
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
