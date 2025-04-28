@@ -1278,7 +1278,7 @@ require('lazy').setup({
       -- Important: This uses your Copilot subscription, no additional API keys needed
 
       -- Select Gemini as the model
-      model = 'gemini-pro', -- This will use Gemini through your Copilot subscription
+      -- model = 'gemini-pro', -- This will use Gemini through your Copilot subscription
 
       auto_follow_cursor = false, -- Don't move cursor when interacting with the chat
       window = {
