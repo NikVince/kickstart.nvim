@@ -1251,6 +1251,23 @@ require('lazy').setup({
     'hrsh7th/nvim-cmp',
     -- This is only for crates.nvim to use, not as your main completion engine
   },
+
+  {
+    'github/copilot.vim',
+    cmd = 'Copilot',
+    event = 'InsertEnter',
+    config = function()
+      -- Enable Copilot for specific filetypes
+      vim.g.copilot_filetypes = {
+        ['*'] = true,
+      }
+      -- Set additional configuration options
+      vim.g.copilot_no_tab_map = true
+      vim.api.nvim_set_keymap('i', '<C-J>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
+      vim.api.nvim_set_keymap('i', '<C-H>', 'copilot#Previous()', { silent = true, expr = true })
+      vim.api.nvim_set_keymap('i', '<C-K>', 'copilot#Next()', { silent = true, expr = true })
+    end,
+  },
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
