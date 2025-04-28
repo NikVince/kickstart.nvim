@@ -680,7 +680,7 @@ require('lazy').setup({
               },
               -- Add clippy lints for better code suggestions
               checkOnSave = {
-                enable = true,
+                -- enable = true,
                 command = 'clippy',
                 extraArgs = { '--no-deps' },
               },
@@ -1178,6 +1178,7 @@ require('lazy').setup({
               },
               -- Add clippy lints for better code suggestions
               checkOnSave = {
+                enable = true,
                 command = 'clippy',
                 extraArgs = { '--no-deps' },
               },
