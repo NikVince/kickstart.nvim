@@ -1002,7 +1002,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   -- require 'kickstart.plugins.autopairs',
-  -- require 'kickstart.plugins.neo-tree',
+  require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -1298,6 +1298,30 @@ require('lazy').setup({
       { '<leader>ce', '<cmd>CopilotChatExplain<cr>', desc = 'Explain code' },
       { '<leader>ct', '<cmd>CopilotChatTests<cr>', desc = 'Generate tests' },
       { '<leader>cf', '<cmd>CopilotChatFix<cr>', desc = 'Fix code' },
+    },
+  },
+
+  {
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons', -- Only needed if you want icons
+      'MunifTanjim/nui.nvim',
+    },
+    opts = {
+      filesystem = {
+        filtered_items = {
+          visible = true, -- Show hidden files by default
+        },
+        window = {
+          position = 'left', -- Open on the left side
+          width = 30, -- Width of the window
+        },
+      },
+    },
+    keys = {
+      { '<leader>e', '<cmd>Neotree toggle<cr>', desc = 'Toggle file explorer' },
     },
   },
 }, {
