@@ -1254,19 +1254,47 @@ require('lazy').setup({
 
   {
     'github/copilot.vim',
-    cmd = 'Copilot',
-    event = 'InsertEnter',
     config = function()
-      -- Enable Copilot for specific filetypes
+      -- Basic configuration
       vim.g.copilot_filetypes = {
         ['*'] = true,
       }
-      -- Set additional configuration options
+
+      -- Optional: If you want to disable the TAB key for suggestions
       vim.g.copilot_no_tab_map = true
+
+      -- Optional: Alternative key for accepting suggestions
       vim.api.nvim_set_keymap('i', '<C-J>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
-      vim.api.nvim_set_keymap('i', '<C-H>', 'copilot#Previous()', { silent = true, expr = true })
-      vim.api.nvim_set_keymap('i', '<C-K>', 'copilot#Next()', { silent = true, expr = true })
     end,
+  },
+
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    dependencies = {
+      'github/copilot.vim', -- Base Copilot plugin
+      'nvim-lua/plenary.nvim', -- Required dependency
+    },
+    opts = {
+      -- Important: This uses your Copilot subscription, no additional API keys needed
+      auto_follow_cursor = false, -- Don't move cursor when interacting with the chat
+      window = {
+        layout = 'float', -- Display as floating window
+        width = 0.8, -- Window width
+        height = 0.8, -- Window height
+        border = 'rounded', -- Border style
+      },
+      mappings = {
+        submit = '<CR>', -- Submit chat message
+        close = 'q', -- Close chat window
+      },
+    },
+    -- Convenient keymaps
+    keys = {
+      { '<leader>cc', '<cmd>CopilotChat<cr>', desc = 'Open Copilot Chat' },
+      { '<leader>ce', '<cmd>CopilotChatExplain<cr>', desc = 'Explain code' },
+      { '<leader>ct', '<cmd>CopilotChatTests<cr>', desc = 'Generate tests' },
+      { '<leader>cf', '<cmd>CopilotChatFix<cr>', desc = 'Fix code' },
+    },
   },
 }, {
   ui = {
