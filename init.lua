@@ -1261,7 +1261,7 @@ require('lazy').setup({
       }
 
       -- Optional: If you want to disable the TAB key for suggestions
-      vim.g.copilot_no_tab_map = true
+      -- vim.g.copilot_no_tab_map = true
 
       -- Optional: Alternative key for accepting suggestions
       vim.api.nvim_set_keymap('i', '<C-J>', 'copilot#Accept("<CR>")', { silent = true, expr = true })
