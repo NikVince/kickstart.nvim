@@ -924,6 +924,23 @@ require('lazy').setup({
     end,
   },
 
+  { -- Add moonfly theme
+    'bluz71/vim-moonfly-colors',
+    name = 'moonfly',
+    priority = 1000,
+    config = function()
+      -- Enable contrast for popup windows
+      vim.g.moonflyNormalFloat = true
+
+      -- You can customize other options here:
+      -- vim.g.moonflyItalics = false  -- Disable italics (similar to your Tokyo Night config)
+      -- vim.g.moonflyUndercurls = true  -- Enable undercurls for diagnostics
+
+      -- Set moonfly as your active colorscheme
+      vim.cmd.colorscheme 'moonfly'
+    end,
+  },
+
   -- Highlight todo, notes, etc in comments
   { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
 
